@@ -28,7 +28,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free-webfonts/css/fontawesome.css",
+              "node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-regular.css",
+              "node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-brands.css",
+              "node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css"
             ],
             "scripts": []
           },
@@ -100,8 +105,42 @@
             ],
             "scripts": []
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ablume_ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ablume_ui:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ablume_ui:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ablume_ui:serve:production"
+            }
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "0ef0adbb-ffb1-4b41-9133-89c1f9ae12af"
   }
 }
